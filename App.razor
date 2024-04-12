@@ -1,0 +1,60 @@
+﻿<div class="container vertical fill" style="padding-top:15px;">
+    <IgbDataChart Name="chart"
+                    @ref="chart"
+                    Height="500px"
+                    Width="500px"
+                    Class="chart-background"
+                    IsHorizontalZoomEnabled="false"
+                    IsVerticalZoomEnabled="false">
+
+        <IgbNumericAngleAxis Name="angleAxis"
+                                StartAngleOffset="-90"
+                                LabelFontFamily="Arial Black"
+                                Interval="45"
+                                MinimumValue="0"
+                                MajorStrokeThickness="3"
+                                MaximumValue="360"/>
+
+        <IgbNumericRadiusAxis Name="radiusAxis"
+                                RadiusExtentScale=".8"
+                                CrossingValue="-90"
+                                InnerRadiusExtentScale="0"
+                                Interval="25"
+                                MajorStrokeThickness="3"
+                                Stroke="blue"
+                                StrokeThickness="12"
+                                MinimumValue="0"
+                                MaximumValue="100"/>
+
+    <IgbDataToolTipLayer Name="DataToolTipLayer"/>
+
+    </IgbDataChart>
+</div>
+
+@code {
+    private IgbLegend legend = new();
+    private IgbDataChart? chart;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            StateHasChanged();
+        }
+    }
+
+    // public record SampleDataType(double Direction, double XValue, double YValue);
+    // public IEnumerable<SampleDataType> DataSource { get; } = new SampleDataType[]
+    // {
+    //   new (Direction:0,   XValue: 30, YValue: 80),
+    //   new (Direction:45,  XValue: 20, YValue: 70),
+    //   new (Direction:90,  XValue: 30, YValue: 70),
+    //   new (Direction:135, XValue: 40, YValue: 60),
+    //   new (Direction:180, XValue: 50, YValue: 70),
+    //   new (Direction:225, XValue: 30, YValue: 50),
+    //   new (Direction:270, XValue: 50, YValue: 60),
+    //   new (Direction:315, XValue: 50, YValue: 95),
+    //   new (Direction:360, XValue: 30, YValue: 80),
+    // };
+
+}
